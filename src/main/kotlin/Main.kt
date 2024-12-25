@@ -1,9 +1,8 @@
 fun main() {
-    // Ввод первого массива
+    
     println("Введите первый массив чисел через пробел:")
     val array1 = readLine()?.split(" ")?.mapNotNull { it.toIntOrNull() } ?: emptyList()
 
-    // Ввод второго массива
     println("Введите второй массив чисел через пробел:")
     val array2 = readLine()?.split(" ")?.mapNotNull { it.toIntOrNull() } ?: emptyList()
 
@@ -12,17 +11,15 @@ fun main() {
         return
     }
 
-    // Вычисление пересечения массивов с учетом повторений
     val result = mutableListOf<Int>()
     val array2Copy = array2.toMutableList()
 
     for (num in array1) {
         if (array2Copy.contains(num)) {
             result.add(num)
-            array2Copy.remove(num) // Удаляем число из второго массива, чтобы учесть повторения
+            array2Copy.remove(num) 
         }
     }
 
-    // Вывод результата
     println("Пересечение массивов: $result")
 }
